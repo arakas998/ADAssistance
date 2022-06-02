@@ -5,6 +5,12 @@ const cors = require("cors");
 const User = require("./models/User");
 const bcrypt = require("bcrypt");
 //require('dotenv').config()
+
+
+mongoose.connect("mongodb+srv://admin:admin@cluster0.5cmtv.mongodb.net/?retryWrites=true&w=majority");
+
+
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -18,7 +24,17 @@ app.post("/signup", (req, res, next) =>{
     ime: req.body.ime,
     lozinka: bcrypt.hashSync(req.body.lozinka, 10)
   })
-  console.log(newUser);
+  newUser.save(err => {
+    if (err) {
+      return res.status(400).json({
+        title: "error",
+        error: "E-mail se već koristi"
+      })
+    }
+    return res.status(200).json({
+      title: "Prijava je uspješna"
+    })
+  })
 })
 
 
