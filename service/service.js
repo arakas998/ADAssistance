@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require ('body-parser');
 const mongoose = require ('mongoose');
 const cors = require("cors");
+const User = require("./models/User");
+const bcrypt = require("bcrypt");
 //require('dotenv').config()
 const app = express();
 app.use(cors());
@@ -10,7 +12,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 //rute
 app.post("/signup", (req, res, next) =>{
-  console.log(req.body)
+  console.log(req.body.email)
+  const newUser = new User ({
+    email: req.body.email,
+    ime: req.body.ime,
+    lozinka: bcrypt.hashSync(req.body.lozinka, 10)
+  })
+  console.log(newUser);
 })
 
 
