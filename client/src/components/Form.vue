@@ -50,6 +50,14 @@ export default {
             axios.post("http://localhost:5000/saveform", form, {headers: { 'Authorization': token } })
             .then(res =>{
                 console.log(res);
+                this.Ime = "";
+                this.Prezime = "";
+                this.Brmobitela = "";
+                this.Padresa = "";
+                this.Oadresa = "";
+                this.Vstanje = "";
+                this.Vvozila = "";
+                this.Tezina = "";
                  
                 
             }, err => {
