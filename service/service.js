@@ -65,6 +65,28 @@ app.post("/login", (req, res, next) => {
       })
   })
 })
+
+
+app.get("/user", (req, res, next) =>{
+  let token = req.headers.token;
+  jwt.verify(token, "secretkey", (err, decoded) =>{
+    if (err) return res.status(401).json({
+      title: "Neovlašteni pristup"
+    })
+    
+    User.findOne({ _id: decoded.userId }, (err, user) =>{
+      if (err) return console.log(err)
+      return res.status(200).json({
+        title: "User ispravan",
+        user: {
+          email: user.email,
+          ime: user.ime
+        }
+      })
+    })
+
+  })
+})
 const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {
@@ -73,27 +95,3 @@ app.listen(port, (err) => {
 })
 
 
-
-//const db = require('./db')
-/*
-app.use(cors())
-app.use(express.json());
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
-
-app.post('/add-form', (req, res) => {
-    //const dbC = db()
-    console.log (
-      req.body,
-      //dbC
-    )
-    res.send('Forma dodana')
-  })
-
-
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})*/
