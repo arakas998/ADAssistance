@@ -3,7 +3,7 @@
         <button @click="logout">Odjava</button>
         <h1>HELLO {{ ime }}</h1>
         <h2>Tvoj mail je {{ email }}</h2>
-        <Form></Form>
+        <Form v-if = "rola == 'user'"></Form>
         <Dashboard v-if = "rola == 'admin' "></Dashboard>
     </div>
 </template>
