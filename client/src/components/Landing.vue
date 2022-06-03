@@ -6,6 +6,6 @@
 
 <script>
 export default {
-    name: "Landing"
+    name: "LandingView"
 }
 </script>

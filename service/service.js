@@ -44,6 +44,19 @@ app.post("/login", (req, res, next) => {
       title: "server error",
       error: err
     })
+    if (!user){
+      return res.status(401).json({
+        title: "User nije pronađen",
+        error: "Neispravni podaci"
+      })
+    }
+    if (!bcrypt.compareSync(req.body.lozinka, user.lozinka)){
+      return res.status(401).json({
+        title: "Neuspješna prijava",
+        error: "Neispravni podaci"
+      })
+    }
+    
   })
 })
 const port = process.env.PORT || 5000;
