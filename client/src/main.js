@@ -22,7 +22,7 @@ const router = new VueRouter({
   
   mode: "history",
   routes,
-  //router
+
 })
 
 new Vue({
@@ -32,8 +32,6 @@ new Vue({
   render: h=> {
       return h(App)
   }
- // router,
-  //store,
-  //render: h => h(App)
+ 
 });
-//.$mount('#app')
+
