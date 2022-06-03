@@ -3,6 +3,7 @@
         <button @click="logout">Odjava</button>
         <h1>HELLO {{ ime }}</h1>
         <h2>Tvoj mail je {{ email }}</h2>
+        <Form></Form>
         <Dashboard v-if = "rola == 'admin' "></Dashboard>
     </div>
 </template>
@@ -10,6 +11,7 @@
 <script>
 import axios from 'axios';
 import Dashboard from './Dashboard.vue';
+import Form from './Form.vue';
 export default {
     name: "LandingView",
     
@@ -40,6 +42,6 @@ export default {
             this.$router.push("/login");
         }
     },
-    components: { Dashboard }
+    components: { Dashboard, Form }
 }
 </script>

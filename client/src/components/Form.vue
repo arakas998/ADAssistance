@@ -1,9 +1,15 @@
 <template>
     <div>
-      E-MAIL: <input type="text" v-model="email"> <br/>
-      LOZINKA: <input type="password" v-model="lozinka"> <br/>
-      <button @click="login">Prijava</button>
-      <router-link to="/signup">Nemate otvoren račun?</router-link>
+      Ime: <input type="text" v-model="Ime"> <br/><br/>
+      Prezime: <input type="text" v-model="Prezime"> <br/><br/>
+      Broj mobitela: <input type="text" v-model="Brmobitela"> <br/><br/>
+      Početna adresa: <input type="text" v-model="Padresa"> <br/><br/>
+      Odredišna adresa: <input type="text" v-model="Oadresa"> <br/><br/>
+      Vozno stanje: <input type="text" v-model="Vstanje"> <br/><br/>
+      Vrsta vozila: <input type="text" v-model="Vvozila"> <br/><br/>
+      Težina: <input type="text" v-model="Tezina"> <br/> <br/>
+      <button @click="posalji">Pošalji</button>
+      
       {{ error }}
     </div>
 </template>
@@ -16,20 +22,35 @@ export default {
     name: "FormView",
     data(){
         return{
-            email: "",
-            lozinka: "",
+            Ime: "",
+            Prezime: "",
+            Brmobitela: "",
+            Padresa: "",
+            Oadresa: "",
+            Vstanje: "",
+            Vvozila: "",
+            Tezina: "",
             error: ""
         }
     },
     methods: {
-        login(){
+        posalji(){
             let form = {
-                email: this.email,
-                lozinka: this.lozinka
+                Ime: this.Ime,
+                Prezime: this.Prezime,
+                Brmobitela: this.Brmobitela,
+                Padresa: this.Padresa,
+                Oadresa: this.Oadresa,
+                Vstanje: this.Vstanje,
+                Vvozila: this.Vvozila,
+                Tezina: this.Tezina
             }
-            axios.post("http://localhost:5000/saveform", { form:form, headers: { token: localStorage.getItem("token") } })
+            let token = localStorage.getItem("token") 
+            console.log (token)
+            axios.post("http://localhost:5000/saveform", form, {headers: { 'Authorization': token } })
             .then(res =>{
                 console.log(res);
+                 
                 
             }, err => {
                 console.log(err.response);

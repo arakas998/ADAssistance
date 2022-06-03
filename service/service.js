@@ -70,9 +70,13 @@ app.post("/login", (req, res, next) => {
 
 
 
+
+
+
 app.post("/saveform", (req, res, next) => {
   
-  let token = req.headers.token;
+  let token = req.headers.authorization;
+  
   jwt.verify(token, "secretkey", (err, decoded) => {
     if (err) return res.status(401).json({
       title: "Neovlašteni pristup"
@@ -81,35 +85,48 @@ app.post("/saveform", (req, res, next) => {
     User.findOne({ _id: decoded.userId }, (err, user) => {
       if (err) return console.log(err)
       const newForm = new Form({
-        adresa: req.body.adresa,
-        ime: req.body.ime,
-
-        userId: db.Types.ObjectId(user._id)
+        Ime: req.body.Ime,
+        Prezime: req.body.Prezime,
+        Brmobitela: req.body.Brmobitela,
+        Padresa: req.body.Padresa,
+        Oadresa: req.body.Oadresa,
+        Vstanje: req.body.Vstanje,
+        Vvozila: req.body.Vvozila,
+        Tezina: req.body.Tezina,
+        userId: mongoose.Types.ObjectId(user._id)
       })
+     
       newForm.save(err => {
+        
         if (err) {
           return res.status(400).json({
-            title: "error",
-            error: "E-mail se već koristi"
+            title: err,
+            error: "Forma već ispunjena"
           })
         }
+        
         return res.status(200).json({
-          title: "Prijava je uspješna"
+          title: "Forma spremljena",
+          Form: {
+            Ime: req.body.Ime,
+            Prezime: req.body.Prezime,
+            Brmobitela: req.body.Brmobitela,
+            Padresa: req.body.Padresa,
+            Oadresa: req.body.Oadresa,
+            Vstanje: req.body.Vstanje,
+            Vvozila: req.body.Vvozila,
+            Tezina: req.body.Tezina
+          }
         })
       })
-      return res.status(200).json({
-        title: "User ispravan",
-        user: {
-          email: user.email,
-          ime: user.ime,
-          rola: user.rola
-        }
-      })
+      
     })
 
   })
 
 })
+
+
 
 app.get("/user", (req, res, next) => {
   let token = req.headers.token;
