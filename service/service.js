@@ -38,7 +38,14 @@ app.post("/signup", (req, res, next) =>{
 })
 
 
-
+app.post("/login", (req, res, next) => {
+  User.findOne({email: req.body.email}, (err,user) =>{
+    if (err) return res.status(500).json({
+      title: "server error",
+      error: err
+    })
+  })
+})
 const port = process.env.PORT || 5000;
 
 app.listen(port, (err) => {

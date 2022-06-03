@@ -3,7 +3,7 @@
     IME: <input type="text"  v-model="ime" /> <br/>
     E-MAIL: <input type="text" v-model="email" /> <br/>
     LOZINKA: <input type="password" v-model="lozinka" /> <br/>
-    <button @click="signup">Sign Up</button>
+    <button @click="signup">Registracija</button>
 </div>
 </template>
 

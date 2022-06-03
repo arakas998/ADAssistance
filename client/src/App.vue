@@ -1,18 +1,17 @@
 <template>
 <div>
 
-<SignUp/>
+<route-view>
+</route-view>
 
 </div>
 </template>
 <script>
-import SignUp from "./components/SignUp"
+
 export default {
 
   name: "App",
-  components: {
-    SignUp
-  }
+
 }
 
 </script>
