@@ -4,6 +4,7 @@ const mongoose = require ('mongoose');
 const cors = require("cors");
 const User = require("./models/User");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 //require('dotenv').config()
 
 
@@ -40,6 +41,7 @@ app.post("/signup", (req, res, next) =>{
 
 app.post("/login", (req, res, next) => {
   User.findOne({email: req.body.email}, (err,user) =>{
+    console.log(user)
     if (err) return res.status(500).json({
       title: "server error",
       error: err
@@ -56,7 +58,11 @@ app.post("/login", (req, res, next) => {
         error: "Neispravni podaci"
       })
     }
-    
+      let token = jwt.sign({userId: user._id}, "secretkey");
+      return res.status(200).json({
+        title: "Prijava je uspješna",
+        token: token
+      })
   })
 })
 const port = process.env.PORT || 5000;
