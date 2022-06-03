@@ -5,7 +5,7 @@ const cors = require("cors");
 const User = require("./models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-//require('dotenv').config()
+
 
 
 mongoose.connect("mongodb+srv://admin:admin@cluster0.5cmtv.mongodb.net/?retryWrites=true&w=majority");

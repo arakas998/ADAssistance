@@ -4,8 +4,7 @@ import VueRouter from 'vue-router';
 import Landing from "./components/Landing";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
-//import { component } from 'vue/types/umd';
-//import store from './store'
+
 
 Vue.use(VueRouter);
 
