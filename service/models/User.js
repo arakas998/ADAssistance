@@ -8,6 +8,7 @@ const userScahema = new Schema ({
         type: String
     },
     lozinka: String,
+    rola: String
 })
 
 const User = mongoose.model("User", userScahema);
