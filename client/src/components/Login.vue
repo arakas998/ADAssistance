@@ -3,6 +3,7 @@
       E-MAIL: <input type="text" v-model="email"> <br/>
       LOZINKA: <input type="password" v-model="lozinka"> <br/>
       <button @click="login">Prijava</button>
+      <router-link to="/signup">Nemate otvoren račun?</router-link>
       {{ error }}
     </div>
 </template>
@@ -15,8 +16,9 @@ export default {
     name: "LoginView",
     data(){
         return{
-            email: " ",
-            lozinka: " ",
+            email: "",
+            lozinka: "",
+            error: ""
         }
     },
     methods: {

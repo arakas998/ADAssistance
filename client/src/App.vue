@@ -1,8 +1,8 @@
 <template>
 <div>
 
-<route-view>
-</route-view>
+<router-view>
+</router-view>
 
 </div>
 </template>
