@@ -4,14 +4,15 @@
         <h1>HELLO {{ ime }}</h1>
         <h2>Tvoj mail je {{ email }}</h2>
         <Form v-if = "rola == 'user'"></Form>
-        <Dashboard v-if = "rola == 'admin' "></Dashboard>
+        <FormList v-if="rola" :rola="rola" />
     </div>
 </template>
 
 <script>
 import axios from 'axios';
-import Dashboard from './Dashboard.vue';
+//import Dashboard from './Dashboard.vue';
 import Form from './Form.vue';
+import FormList from './FormList.vue';
 export default {
     name: "LandingView",
     
@@ -27,13 +28,14 @@ export default {
             this.$router.push("/login");
         }
     },
-    mounted() {
-        axios.get("http://localhost:5000/user", { headers: { token: localStorage.getItem("token") } })
+    async mounted() {
+        await axios.get("http://localhost:5000/user", { headers: { token: localStorage.getItem("token") } })
             .then(res => {
             console.log(res);
             this.ime = res.data.user.ime;
             this.email = res.data.user.email;
             this.rola = res.data.user.rola;
+            console.log(this.rola)
         });
     },
     methods: {
@@ -42,6 +44,6 @@ export default {
             this.$router.push("/login");
         }
     },
-    components: { Dashboard, Form }
+    components: { Form, FormList }
 }
 </script>

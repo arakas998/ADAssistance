@@ -10,8 +10,8 @@ const formSchema = new Schema ({
     Oadresa: String,
     Vstanje: String,
     Vvozila: String,
-    Tezina: Number
-    
+    Tezina: Number,
+    Status: String
 })
 
 const Form = mongoose.model("Form", formSchema);

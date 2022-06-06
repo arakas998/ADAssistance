@@ -70,8 +70,29 @@ app.post("/login", (req, res, next) => {
 
 
 
+app.get("/get-user-forms",(req,res, next)=>{
+  let token = req.headers.token;
+  jwt.verify(token, "secretkey", (err, decoded) => {
+    if(err) return res.status(401).json({err})
+    const {userId} = decoded
 
+    Form.find({ userId: mongoose.Types.ObjectId(userId)}, '-userId -__v', (err, forms) => {
+      if(err) return res.status(500).json({err})
+      return res.status(200).json({forms})
+    })
+  })
+})
 
+app.get("/get-all-forms",(req,res, next)=>{
+  let token = req.headers.token;
+  jwt.verify(token, "secretkey", (err, decoded) => {
+    if(err) return res.status(401).json({err})
+    Form.find({}, '-userId -__v', (err, forms) => {
+      if(err) return res.status(500).json({err})
+      return res.status(200).json({forms})
+    })
+  })
+})
 
 app.post("/saveform", (req, res, next) => {
   
