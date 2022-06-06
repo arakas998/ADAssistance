@@ -59,7 +59,7 @@ export default {
                 this.Vvozila = "";
                 this.Tezina = "";
                  
-                
+                this.$root.$emit('getForms', "");
             }, err => {
                 console.log(err.response);
                 this.error = err.response.data.error;

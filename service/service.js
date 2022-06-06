@@ -94,6 +94,32 @@ app.get("/get-all-forms",(req,res, next)=>{
   })
 })
 
+app.post("/approve-form",(req,res, next)=>{
+  let token = req.headers.token;
+  let formId = req.query.id
+
+  jwt.verify(token, "secretkey", (err, decoded) => {
+    if(err) return res.status(401).json({err})
+    Form.findOneAndUpdate({_id: mongoose.Types.ObjectId(formId)},{$set:{Status: "prihvaceno"}}, (err, forms) => {
+      if(err) return res.status(500).json({err})
+      return res.status(200).json({forms})
+    })
+  })
+})
+
+app.post("/reject-form",(req,res, next)=>{
+  let token = req.headers.token;
+  let formId = req.query.id
+  console.log(formId)
+  jwt.verify(token, "secretkey", (err, decoded) => {
+    if(err) return res.status(401).json({err})
+    Form.findOneAndUpdate({_id: mongoose.Types.ObjectId(formId)},{$set:{Status: "odbijeno"}}, (err, forms) => {
+      if(err) return res.status(500).json({err})
+      return res.status(200).json({forms})
+    })
+  })
+})
+
 app.post("/saveform", (req, res, next) => {
   
   let token = req.headers.authorization;
@@ -114,7 +140,8 @@ app.post("/saveform", (req, res, next) => {
         Vstanje: req.body.Vstanje,
         Vvozila: req.body.Vvozila,
         Tezina: req.body.Tezina,
-        userId: mongoose.Types.ObjectId(user._id)
+        userId: mongoose.Types.ObjectId(user._id),
+        Status: "cekanje"
       })
      
       newForm.save(err => {
