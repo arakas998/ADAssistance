@@ -1,16 +1,16 @@
 <template>
     <div>
-      Ime: <input type="text" v-model="Ime"> <br/><br/>
-      Prezime: <input type="text" v-model="Prezime"> <br/><br/>
-      Broj mobitela: <input type="text" v-model="Brmobitela"> <br/><br/>
-      Početna adresa: <input type="text" v-model="Padresa"> <br/><br/>
-      Odredišna adresa: <input type="text" v-model="Oadresa"> <br/><br/>
-      Vozno stanje: <input type="text" v-model="Vstanje"> <br/><br/>
-      Vrsta vozila: <input type="text" v-model="Vvozila"> <br/><br/>
-      Težina: <input type="text" v-model="Tezina"> <br/> <br/>
-      <button @click="posalji">Pošalji</button> <br/><br/>
-      
-      {{ error }}
+        Ime: <input type="text" v-model="Ime"> <br /><br />
+        Prezime: <input type="text" v-model="Prezime"> <br /><br />
+        Broj mobitela: <input type="text" v-model="Brmobitela"> <br /><br />
+        Početna adresa: <input type="text" v-model="Padresa"> <br /><br />
+        Odredišna adresa: <input type="text" v-model="Oadresa"> <br /><br />
+        Vozno stanje: <input type="text" v-model="Vstanje"> <br /><br />
+        Vrsta vozila: <input type="text" v-model="Vvozila"> <br /><br />
+        Težina: <input type="text" v-model="Tezina"> <br /> <br />
+        <button @click="posalji">Pošalji</button> <br /><br />
+
+        {{ error }}
     </div>
 </template>
 
@@ -20,8 +20,8 @@ import axios from 'axios';
 
 export default {
     name: "FormView",
-    data(){
-        return{
+    data() {
+        return {
             Ime: "",
             Prezime: "",
             Brmobitela: "",
@@ -34,7 +34,7 @@ export default {
         }
     },
     methods: {
-        posalji(){
+        posalji() {
             let form = {
                 Ime: this.Ime,
                 Prezime: this.Prezime,
@@ -45,25 +45,25 @@ export default {
                 Vvozila: this.Vvozila,
                 Tezina: this.Tezina
             }
-            let token = localStorage.getItem("token") 
-            console.log (token)
-            axios.post("http://localhost:5000/saveform", form, {headers: { 'Authorization': token } })
-            .then(res =>{
-                console.log(res);
-                this.Ime = "";
-                this.Prezime = "";
-                this.Brmobitela = "";
-                this.Padresa = "";
-                this.Oadresa = "";
-                this.Vstanje = "";
-                this.Vvozila = "";
-                this.Tezina = "";
-                 
-                this.$root.$emit('getForms', "");
-            }, err => {
-                console.log(err.response);
-                this.error = err.response.data.error;
-            })
+            let token = localStorage.getItem("token")
+            console.log(token)
+            axios.post("http://localhost:5000/saveform", form, { headers: { 'Authorization': token } })
+                .then(res => {
+                    console.log(res);
+                    this.Ime = "";
+                    this.Prezime = "";
+                    this.Brmobitela = "";
+                    this.Padresa = "";
+                    this.Oadresa = "";
+                    this.Vstanje = "";
+                    this.Vvozila = "";
+                    this.Tezina = "";
+
+                    this.$root.$emit('getForms', "");
+                }, err => {
+                    console.log(err.response);
+                    this.error = err.response.data.error;
+                })
         }
     }
 }
