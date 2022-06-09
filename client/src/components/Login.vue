@@ -21,9 +21,7 @@
 <p>Dolazimo na mjesto nezgode te vršimo usluge sitnih popravaka na licu mjesta.
 Ukoliko isto nije moguće prevozimo Vas i Vaše vozilo na željeno odredište.
 Surađujemo sa odabranim mehaničarskim i autolimarskim radionicama te Vaše vozilo može biti osposobljeno za daljnje putovanje u vrlo kratkom roku.
-Na raspolaganju Vam je i 40 zamjenskih vozila iz našeg voznog parka.
 Po potrebi Vaše vozilo možete nam ostaviti na čuvanju u našem zaštićenom depou.
-Isto tako ističemo da možemo osigurati smještaj ukoliko se za to ukaže potreba.
 Surađujemo sa brojnim domaćim, europskim i svjetskim asistencama i osiguravajućim kućama.
 Ugovorni smo suradnici HAK-a.</p>
 
@@ -34,10 +32,6 @@ Ugovorni smo suradnici HAK-a.</p>
 S punim povjerenjem nam predajte Vašeg trkaćeg ljubimca ili bilo koje vozilo, dostaviti ćemo Vam ga sigurno i pravovremeno na željeno odredište.
 Godine iskustva i konstantno usavršavanje, te praćenje standarda u struci i opremljenost najsuvremenijim tehnologijama garancija su naše kvalitete.</p>
 
-<h3>RENT A CAR</h3>
-
-<p>Osim prijevoza vozila i pomoći na cesti, nudimo Vam i usluge iznajmljivanja vozila raznih kategorija u našoj rent-a-car službi "AD Rent-a-car".
-Sve dodatne informacije na www.ad_rent-a-car.hr Ne ustručavajte se javiti nam se za informacije, savjete ili upite!</p>
 
 <h4>Obratite nam se s povjerenjem!</h4>
 </div>

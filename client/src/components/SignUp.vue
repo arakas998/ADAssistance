@@ -27,7 +27,6 @@ export default{
             ime: "",
             email: "",
             lozinka: "",
-
             error: "",
         }
     },

@@ -4,12 +4,14 @@
         <h1>Dobrodošli {{ ime }} u AD Transporti</h1>
         <Form v-if = "rola == 'user'"></Form>
         <FormList v-if="rola" :rola="rola" />
+
+        
     </div>
+   
 </template>
 
 <script>
 import axios from 'axios';
-//import Dashboard from './Dashboard.vue';
 import Form from './Form.vue';
 import FormList from './FormList.vue';
 export default {
