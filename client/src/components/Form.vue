@@ -8,7 +8,7 @@
       Vozno stanje: <input type="text" v-model="Vstanje"> <br/><br/>
       Vrsta vozila: <input type="text" v-model="Vvozila"> <br/><br/>
       Težina: <input type="text" v-model="Tezina"> <br/> <br/>
-      <button @click="posalji">Pošalji</button>
+      <button @click="posalji">Pošalji</button> <br/><br/>
       
       {{ error }}
     </div>

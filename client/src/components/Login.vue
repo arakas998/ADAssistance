@@ -4,6 +4,7 @@
 
     <span class="left">
         <h1>AD TRANSPORTI</h1> <br/>
+      
         
         
     </span>
@@ -111,5 +112,10 @@ img {
     margin-top:-50px;
     margin-left:-50px;
     
+}
+
+
+p {
+  font-size: 20px;
 }
 </style>

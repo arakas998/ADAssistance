@@ -1,8 +1,7 @@
 <template>
     <div>
         <button @click="logout">Odjava</button>
-        <h1>HELLO {{ ime }}</h1>
-        <h2>Tvoj mail je {{ email }}</h2>
+        <h1>Dobrodošli {{ ime }} u AD Transporti</h1>
         <Form v-if = "rola == 'user'"></Form>
         <FormList v-if="rola" :rola="rola" />
     </div>

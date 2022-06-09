@@ -1,8 +1,11 @@
  <template>
 <div>
-    IME: <input type="text"  v-model="ime" /> <br/>
-    E-MAIL: <input type="text" v-model="email" /> <br/>
-    LOZINKA: <input type="password" v-model="lozinka" /> <br/>
+
+    <h3>Dobrodošli u aplikaciju AD transporti, molimo Vas da ispunite polja sa podacima kako bi ste se registriali i nastavili koristiti naše usluge.</h3><br/>
+
+    IME: <input type="text"  v-model="ime" /> <br/><br/>
+    E-MAIL: <input type="text" v-model="email" /> <br/><br/>
+    LOZINKA: <input type="password" v-model="lozinka" /> <br/><br/>
     <button @click="signup">Registracija</button>
     {{ error }}
 </div>
